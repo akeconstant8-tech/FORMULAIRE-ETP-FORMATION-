@@ -23,6 +23,10 @@
   const promoReduction = document.getElementById("promoReduction");
 
   const submitBtn = form.querySelector('button[type="submit"]');
+  const successOverlay = document.getElementById("successOverlay");
+  const successCloseBtn = document.getElementById("successCloseBtn");
+  const successStudentName = document.getElementById("successStudentName");
+  const successDate = document.getElementById("successDate");
 
   const statusBox = document.createElement("div");
   statusBox.className = "alert mt-3 d-none";
@@ -347,6 +351,34 @@
     localStorage.removeItem(DRAFT_KEY);
   }
 
+  function formatFrenchDate(date) {
+    return new Intl.DateTimeFormat("fr-FR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  }
+
+  function openSuccessModal(data) {
+    if (!successOverlay) return;
+    if (successStudentName) {
+      successStudentName.textContent = data.eleveNom || "Élève";
+    }
+    if (successDate) {
+      successDate.textContent = formatFrenchDate(new Date());
+    }
+    successOverlay.classList.remove("d-none");
+    successOverlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeSuccessModal() {
+    if (!successOverlay) return;
+    successOverlay.classList.add("d-none");
+    successOverlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
   form.addEventListener("input", saveDraft);
   form.addEventListener("change", saveDraft);
 
@@ -375,6 +407,7 @@
     }
 
     showMessage("success", "Inscription envoyée avec succès.");
+    openSuccessModal(data);
   });
 
   if (fields.niveau) {
@@ -402,4 +435,22 @@
   if (submitBtn) {
     submitBtn.setAttribute("aria-label", "Envoyer la fiche d'inscription");
   }
+
+  if (successCloseBtn) {
+    successCloseBtn.addEventListener("click", closeSuccessModal);
+  }
+
+  if (successOverlay) {
+    successOverlay.addEventListener("click", function (event) {
+      if (event.target === successOverlay) {
+        closeSuccessModal();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeSuccessModal();
+    }
+  });
 })();

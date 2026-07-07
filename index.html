@@ -14,6 +14,14 @@
 
 <body>
   <div class="container py-4 py-md-5">
+    <a class="whatsapp-hero" href="https://wa.me/2250708651718" target="_blank" rel="noopener noreferrer" aria-label="Contacter ETP Formation sur WhatsApp">
+      <span class="whatsapp-hero-icon"><i class="bi bi-whatsapp"></i></span>
+      <span class="whatsapp-hero-content">
+        <small>Contactez-nous ici sur</small>
+        <strong>0708651718</strong>
+      </span>
+      <span class="whatsapp-hero-arrow"><i class="bi bi-chevron-right"></i></span>
+    </a>
     <div class="card main-card">
       <div class="card-header-pro">
         <img src="Image/WhatsApp_Image_2026-07-07_at_12.33.38-removebg-preview.png" alt="Logo ETP Formation" class="logo" />
@@ -113,8 +121,12 @@
             <div id="matieresContainer" class="row g-2"></div>
           </div>
 
-          <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+          <div class="d-flex flex-wrap gap-2 justify-content-center mt-3 align-items-center">
             <button type="submit" class="btn btn-orange btn-lg"><i class="bi bi-send-check me-2"></i>Envoyer</button>
+            <a class="whatsapp-inline-link" href="https://wa.me/2250708651718" target="_blank" rel="noopener noreferrer" aria-label="Contacter ETP Formation sur WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
           </div>
         </form>
 
@@ -125,6 +137,34 @@
       </div>
     </div>
   </div>
+  <div id="successOverlay" class="success-overlay d-none" aria-hidden="true">
+    <div class="success-modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+      <div class="success-icon"><i class="bi bi-check2-circle"></i></div>
+      <h2 id="successTitle">Félicitations ! 🎉</h2>
+      <h3 id="successStudentName" class="success-student-name">Nom Élève</h3>
+      <p class="success-text">Votre inscription a été effectuée avec succès. Nous vous remercions pour votre confiance.</p>
+
+      <div class="success-meta">
+        <div class="success-meta-item">
+          <i class="bi bi-calendar-check"></i>
+          <div>
+            <small>Date d'inscription</small>
+            <strong id="successDate">--</strong>
+          </div>
+        </div>
+        <div class="success-meta-item">
+          <i class="bi bi-patch-check"></i>
+          <div>
+            <small>Statut</small>
+            <strong class="success-status">Réussie</strong>
+          </div>
+        </div>
+      </div>
+
+      <button id="successCloseBtn" type="button" class="btn success-btn">Parfait, merci !</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
