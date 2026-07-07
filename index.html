@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ETP FORMATION - Fiche d'inscription Élève</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container py-4 py-md-5">
+    <div class="card main-card">
+      <div class="card-header-pro">
+        <img src="Image/WhatsApp_Image_2026-07-07_at_12.33.38-removebg-preview.png" alt="Logo ETP Formation" class="logo" />
+        <h1 class="h3 school-title">ETP FORMATION</h1>
+        <p class="school-subtitle">Fiche  D'inscriptions d'élèves</p>
+      </div>
+
+      <div class="card-body">
+        <form>
+
+          <div class="section-block previous-enrollment-card">
+            <h2 class="section-title"><i class="bi bi-stars"></i> Historique ETP Formation</h2>
+            <p class="previous-enrollment-intro">Avez-vous déjà inscrit un enfant à ETP Formation ?</p>
+
+            <div class="d-flex flex-wrap gap-3 mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="dejaInscrit" id="dejaInscritOui" value="oui" />
+                <label class="form-check-label" for="dejaInscritOui">Oui</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="dejaInscrit" id="dejaInscritNon" value="non" checked />
+                <label class="form-check-label" for="dejaInscritNon">Non</label>
+              </div>
+            </div>
+
+            <div id="previousEnrollmentDetails" class="row g-3 d-none">
+              <div class="col-md-7">
+                <label for="ancienEnfantNom" class="form-label required">Nom de l'enfant déjà inscrit</label>
+                <input id="ancienEnfantNom" type="text" class="form-control" placeholder="Ex : TRAORE Mohamed" />
+              </div>
+              <div class="col-md-5">
+                <label for="anneeInscription" class="form-label required">Année d'inscription</label>
+                <input id="anneeInscription" type="number" min="2000" max="2100" class="form-control" placeholder="Ex : 2024" />
+              </div>
+            </div>
+
+            <div id="promoReduction" class="promo-reduction d-none">
+              <div class="promo-pill"><i class="bi bi-gift-fill"></i> Offre réduction ETP</div>
+              <p><strong>Réduction sur une inscription avant le 15 AOÛT.</strong> Cliquez pour découvrir votre réduction.</p>
+              <a href="#" class="promo-cta" role="button">Découvrir ma réduction avant le 15 AOÛT</a>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h2 class="section-title"><i class="bi bi-people-fill"></i> Informations du parent / tuteur</h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="parentNom" class="form-label required">Nom complet du parent</label>
+                <input id="parentNom" type="text" class="form-control" placeholder="Ex : KOUASSI Marie" required />
+              </div>
+              <div class="col-md-3">
+                <label for="parentWhatsapp" class="form-label required">WhatsApp</label>
+                <input id="parentWhatsapp" type="tel" class="form-control" placeholder="+225 XX XX XX XX XX" required />
+              </div>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h2 class="section-title"><i class="bi bi-person-vcard-fill"></i> Informations de l'élève</h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="eleveNom" class="form-label required">Nom et prénoms</label>
+                <input id="eleveNom" type="text" class="form-control" placeholder="Ex : TRAORE Aminata" required />
+              </div>
+              <div class="col-md-6">
+                <label for="etablissement" class="form-label required">Établissement</label>
+                <input id="etablissement" type="text" class="form-control" placeholder="Ex : Lycée Moderne d'Abidjan" required />
+              </div>
+              <div class="col-md-3">
+                <label for="sexe" class="form-label required">Sexe</label>
+                <select id="sexe" class="form-select" required>
+                  <option value="" selected disabled>Choisir</option>
+                  <option>Masculin</option>
+                  <option>Féminin</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="niveau" class="form-label required">Niveau</label>
+                <select id="niveau" class="form-select" required>
+                  <option value="" selected disabled>Sélectionner un niveau</option>
+                  <option>6ème</option>
+                  <option>5ème</option>
+                  <option>4ème</option>
+                  <option>3ème</option>
+                  <option>2nde</option>
+                  <option>1ère Générale</option>
+                  <option>1ère STMG</option>
+                  <option>Terminale Générale</option>
+                  <option>Terminale STMG</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h2 class="section-title"><i class="bi bi-journal-check"></i> Matières souhaitées</h2>
+            <div id="matieresContainer" class="row g-2"></div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+            <button type="submit" class="btn btn-orange btn-lg"><i class="bi bi-send-check me-2"></i>Envoyer</button>
+          </div>
+        </form>
+
+        <div class="admin-footer">
+          <a href="backoffice/login.html" class="admin-footer-link" aria-label="Espace admin"><i class="bi bi-shield-lock me-1"></i>Espace admin</a>
+        </div>
+        <p class="footer-note">ETP FORMATION • Fiche d'inscriptions élèves • Document interne</p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

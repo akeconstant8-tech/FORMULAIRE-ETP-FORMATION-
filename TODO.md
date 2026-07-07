@@ -1,0 +1,21 @@
+# TODO - Refonte visuelle (bleu/orange/blanc) + nettoyage header
+
+- [x] Supprimer tout texte "Formulaire Premium" au-dessus du logo.
+- [x] Harmoniser la palette visuelle dans `style.css` (bleu/orange/blanc).
+- [x] Améliorer contraste, boutons, champs, bordures et sections.
+- [x] Vérifier cohérence responsive et rendu global.
+- [x] Ajouter la logique de réduction avant le 15 août
+- [x] Mettre à jour le message promo dans l'interface
+- [x] Vérifier le comportement d'affichage de la promo
+- [x] Refonte visuelle de la page login selon le modèle fourni
+- [x] Adapter le style des champs Email / Mot de passe en mode capsule
+- [x] Conserver les couleurs existantes (bleu/orange/blanc)
+- [x] Vérifier l'affichage responsive de la nouvelle page login
+- [x] Appliquer le nouveau design sur la page principale du site
+- [x] Moderniser la carte principale et les sections du formulaire
+- [x] Harmoniser boutons, champs et blocs avec un rendu premium
+- [x] Conserver toutes les couleurs existantes et la logique JS actuelle
+- [x] Refaire la structure du dashboard backoffice selon la maquette
+- [x] Appliquer le style blanc/bleu/orange sur le dashboard
+- [x] Transformer la liste en tableau de gestion des inscriptions
+- [x] Ajouter/valider le bouton Supprimer dans chaque ligne

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backoffice ETP - Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>ETP</h1>
+        <span>FORMATION</span>
+      </div>
+
+      <nav class="menu">
+        <a class="menu-item active" href="#">Tableau de bord</a>
+        <a class="menu-item" href="#">Inscriptions</a>
+        <a class="menu-item" href="#">Formations</a>
+        <a class="menu-item" href="#">Élèves</a>
+        <a class="menu-item" href="#">Paiements</a>
+        <a class="menu-item" href="#">Messages</a>
+        <a class="menu-item" href="#">Statistiques</a>
+        <a class="menu-item" href="#">Paramètres</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../index.html" class="ghost-link">Voir le formulaire</a>
+        <button id="logoutBtn" type="button">Déconnexion</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h2>Inscriptions des élèves</h2>
+          <p>Gérez et consultez toutes les inscriptions</p>
+        </div>
+        <div class="top-actions">
+          <span class="admin-pill">Admin</span>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <h3 id="statTotal">0</h3>
+          <p>Inscriptions totales</p>
+        </article>
+        <article class="stat-card">
+          <h3 id="statNew">0</h3>
+          <p>Nouveaux inscrits</p>
+        </article>
+        <article class="stat-card">
+          <h3 id="statConfirmed">0</h3>
+          <p>Confirmés</p>
+        </article>
+        <article class="stat-card">
+          <h3 id="statPending">0</h3>
+          <p>En attente</p>
+        </article>
+      </section>
+
+      <section class="table-panel">
+        <div class="table-toolbar">
+          <input id="searchInput" type="text" placeholder="Rechercher un élève, parent, téléphone..." />
+        </div>
+
+        <div id="list" class="table-wrap"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
