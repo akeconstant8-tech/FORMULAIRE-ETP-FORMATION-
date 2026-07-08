@@ -27,6 +27,7 @@
   const successCloseBtn = document.getElementById("successCloseBtn");
   const successStudentName = document.getElementById("successStudentName");
   const successDate = document.getElementById("successDate");
+  let isResettingAfterSubmit = false;
 
   const statusBox = document.createElement("div");
   statusBox.className = "alert mt-3 d-none";
@@ -283,6 +284,7 @@
   }
 
   function saveDraft() {
+    if (isResettingAfterSubmit) return;
     const draft = {
       parentNom: fields.parentNom?.value || "",
       parentWhatsapp: fields.parentWhatsapp?.value || "",
@@ -300,6 +302,33 @@
       anneeInscription: fields.anneeInscription?.value || "",
     };
     localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+  }
+
+  function resetFormAfterSubmit() {
+    isResettingAfterSubmit = true;
+
+    clearDraft();
+    form.reset();
+
+    const dejaInscritNonRadio = document.getElementById("dejaInscritNon");
+    if (dejaInscritNonRadio) {
+      dejaInscritNonRadio.checked = true;
+    }
+
+    if (fields.parentNom) fields.parentNom.value = "";
+    if (fields.parentWhatsapp) fields.parentWhatsapp.value = "";
+    if (fields.eleveNom) fields.eleveNom.value = "";
+    if (fields.etablissement) fields.etablissement.value = "";
+    if (fields.sexe) fields.sexe.value = "";
+    if (fields.niveau) fields.niveau.value = "";
+    if (fields.ancienEnfantNom) fields.ancienEnfantNom.value = "";
+    if (fields.anneeInscription) fields.anneeInscription.value = "";
+
+    renderMatieresByNiveau("");
+    togglePreviousEnrollmentBlock();
+
+    clearDraft();
+    isResettingAfterSubmit = false;
   }
 
   function loadDraft() {
@@ -398,20 +427,8 @@
     const withId = { id: Date.now(), ...data };
     list.push(withId);
     saveAllInscriptions(list);
-    clearDraft();
 
-    form.reset();
-
-    const dejaInscritNonRadio = document.getElementById("dejaInscritNon");
-    if (dejaInscritNonRadio) {
-      dejaInscritNonRadio.checked = true;
-    }
-
-    if (fields.niveau) {
-      renderMatieresByNiveau("");
-    }
-
-    togglePreviousEnrollmentBlock();
+    resetFormAfterSubmit();
 
     showMessage("success", "Inscription envoyée avec succès.");
     openSuccessModal(data);
