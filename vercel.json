@@ -1,0 +1,9 @@
+{
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/backoffice", "status": 308, "headers": { "Location": "/backoffice/" } },
+    { "src": "/backoffice/", "dest": "/backoffice/login.html" },
+    { "src": "/backoffice/(.*)", "dest": "/backoffice/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
