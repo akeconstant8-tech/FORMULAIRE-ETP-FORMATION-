@@ -169,11 +169,15 @@
     }
   });
 
-  window.addEventListener("etp-inscriptions-updated", rerender);
+  const pollingId = window.setInterval(rerender, 1000);
 
   logoutBtn.addEventListener("click", function () {
     localStorage.removeItem(SESSION_KEY);
     window.location.href = "login.html";
+  });
+
+  window.addEventListener("beforeunload", function () {
+    window.clearInterval(pollingId);
   });
 
   rerender();
