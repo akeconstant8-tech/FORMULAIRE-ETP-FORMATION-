@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Backoffice ETP - Dashboard</title>
+  <title>ETP Back-Office • Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
@@ -34,38 +37,39 @@
     <main class="main-content">
       <header class="topbar">
         <div>
-          <h2>Inscriptions des élèves</h2>
-          <p>Gérez et consultez toutes les inscriptions</p>
+          <p class="overline">Back-Office ETP</p>
+          <h2>Gestion des inscriptions</h2>
+          <p class="subtitle">Suivez, filtrez et administrez les élèves en temps réel.</p>
         </div>
         <div class="top-actions">
-          <span class="admin-pill">Admin</span>
+          <span class="admin-pill">Admin connecté</span>
         </div>
       </header>
 
       <section class="stats-grid">
-        <article class="stat-card">
-          <h3 id="statTotal">0</h3>
+        <article class="stat-card total">
           <p>Inscriptions totales</p>
+          <h3 id="statTotal">0</h3>
         </article>
-        <article class="stat-card">
-          <h3 id="statNew">0</h3>
+        <article class="stat-card fresh">
           <p>Nouveaux inscrits</p>
+          <h3 id="statNew">0</h3>
         </article>
-        <article class="stat-card">
-          <h3 id="statConfirmed">0</h3>
+        <article class="stat-card confirmed">
           <p>Confirmés</p>
+          <h3 id="statConfirmed">0</h3>
         </article>
-        <article class="stat-card">
-          <h3 id="statPending">0</h3>
+        <article class="stat-card pending">
           <p>En attente</p>
+          <h3 id="statPending">0</h3>
         </article>
       </section>
 
       <section class="table-panel">
         <div class="table-toolbar">
-          <input id="searchInput" type="text" placeholder="Rechercher un élève, parent, téléphone..." />
+          <label for="searchInput" class="sr-only">Recherche</label>
+          <input id="searchInput" type="text" placeholder="Rechercher un élève, parent, téléphone, niveau..." />
         </div>
-
         <div id="list" class="table-wrap"></div>
       </section>
     </main>

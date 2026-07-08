@@ -3,34 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Backoffice ETP - Connexion</title>
+  <title>ETP Back-Office • Connexion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="login.css" />
 </head>
 <body>
-  <main class="login-wrapper">
-    <section class="login-shell" aria-label="Connexion backoffice">
-      <div class="ring-decor" aria-hidden="true"></div>
+  <main class="auth-page">
+    <header class="auth-topbar" aria-label="Navigation rapide">
+      <a href="../index.html" class="topbar-link back-link">← Retour</a>
+      <div class="topbar-brand">ETP FORMATION</div>
+      <a href="../index.html" class="topbar-link form-link">Formulaire</a>
+    </header>
 
-      <article class="login-panel">
+    <section class="auth-shell" aria-label="Connexion administrateur">
+      <div class="ring ring-main" aria-hidden="true"></div>
+      <div class="ring ring-soft" aria-hidden="true"></div>
+      <div class="ring ring-accent" aria-hidden="true"></div>
+
+      <article class="auth-card">
+        <p class="auth-badge">Back-Office</p>
         <h1>Login</h1>
-        <p class="subtitle">Accès administrateur ETP FORMATION</p>
+        <p class="subtitle">Connectez-vous avec votre compte administrateur</p>
 
         <form id="loginForm" novalidate>
           <label for="email">Email</label>
-          <input id="email" type="email" placeholder="email@exemple.com" required />
+          <input id="email" type="email" placeholder="email@exemple.com" autocomplete="username" required />
 
           <label for="password">Mot de passe</label>
           <div class="password-wrap">
-            <input id="password" type="password" placeholder="********" required />
+            <input id="password" type="password" placeholder="********" autocomplete="current-password" required />
             <button type="button" id="togglePassword" class="toggle-password" aria-label="Afficher le mot de passe">👁</button>
           </div>
 
           <a href="#" class="forgot-link">Mot de passe oublié ?</a>
-          <button type="submit">Se connecter</button>
+          <button type="submit" class="submit-btn">Se connecter</button>
         </form>
 
         <p id="msg" class="msg" aria-live="polite"></p>
-        <a href="../index.html" class="back-link">← Retour au formulaire</a>
+        <p class="helper-text">Accès réservé à l’administration ETP.</p>
       </article>
     </section>
   </main>

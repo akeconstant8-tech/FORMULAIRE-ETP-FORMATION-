@@ -1,6 +1,8 @@
-- [x] Corriger `backoffice/dashboard.js`
-- [x] Analyser les fichiers backoffice liés au dashboard
-- [x] Corriger les erreurs JS/HTML/CSS détectées sur le dashboard
-- [x] Vérifier cohérence imports/chemins/IDs (dashboard + firebase)
-- [x] Ajouter suppression d'inscription dans le dashboard (bouton devant chaque nom)
-- [ ] Vérification finale en exécution (tests navigateur)
+- [x] Analyser les fichiers du back-office existants
+- [x] Préparer le plan de refonte validé avec l'utilisateur
+- [x] Refaire `back-office/login.html` (structure néon moderne)
+- [x] Refaire `back-office/login.css` (thème sombre + anneau animé + couleurs logo)
+- [x] Refaire `back-office/dashboard.html` (layout plus professionnel)
+- [x] Refaire `back-office/dashboard.css` (design premium cohérent avec login)
+- [x] Vérifier cohérence chemins (`index.html`, `vercel.json`) pour `back-office`
+- [x] Vérifier compatibilité JS (`login.js` / `dashboard.js`) sans changer les identifiants
