@@ -470,10 +470,16 @@
       return;
     }
 
-    const list = getAllInscriptions();
-    const withId = { id: Date.now(), ...data };
-    list.push(withId);
-    saveAllInscriptions(list);
+    try {
+      const list = getAllInscriptions();
+      const withId = { id: Date.now(), ...data };
+      list.push(withId);
+      saveAllInscriptions(list);
+      window.dispatchEvent(new Event("etp-inscriptions-updated"));
+    } catch (error) {
+      showMessage("danger", "Erreur de sauvegarde. Vérifiez l'espace de stockage du navigateur.");
+      return;
+    }
 
     resetFormAfterSubmit();
 

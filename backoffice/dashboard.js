@@ -163,6 +163,14 @@
     searchInput.addEventListener("input", rerender);
   }
 
+  window.addEventListener("storage", function (event) {
+    if (event.key === STORAGE_KEY) {
+      rerender();
+    }
+  });
+
+  window.addEventListener("etp-inscriptions-updated", rerender);
+
   logoutBtn.addEventListener("click", function () {
     localStorage.removeItem(SESSION_KEY);
     window.location.href = "login.html";
