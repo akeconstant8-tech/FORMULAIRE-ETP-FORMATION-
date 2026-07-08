@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "routes": [
     { "handle": "filesystem" },
-    { "src": "^/backo-ffice/?$", "dest": "/back-office/login.html" },
+    { "src": "^/back-office/?$", "dest": "/back-office/login.html" },
     { "src": "^/back-office/(.*)$", "dest": "/back-office/$1" }
   ]
 }
