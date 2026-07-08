@@ -1,8 +1,10 @@
-(function () {
+import { db, collection, addDoc, serverTimestamp }
+ from "./backoffice/firebase.js";
+(function (){
   "use strict";
-
   const STORAGE_KEY = "etp_inscriptions_v1";
   const DRAFT_KEY = "etp_form_draft_v1";
+ 
 
   const form = document.querySelector("form");
   if (!form) return;
@@ -458,7 +460,7 @@
   form.addEventListener("input", saveDraft);
   form.addEventListener("change", saveDraft);
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
     clearMessage();
 
@@ -471,14 +473,15 @@
     }
 
     try {
-      const list = getAllInscriptions();
-      const withId = { id: Date.now(), ...data };
-      list.push(withId);
-      saveAllInscriptions(list);
-    } catch (error) {
-      showMessage("danger", "Erreur de sauvegarde. Vérifiez l'espace de stockage du navigateur.");
-      return;
-    }
+    await addDoc(collection(db, "inscriptions"), {
+        ...data,
+        createdAt: serverTimestamp()
+    });
+} catch (error) {
+    console.error(error);
+    showMessage("danger", "Erreur lors de l'enregistrement dans Firebase.");
+    return;
+}
 
     resetFormAfterSubmit();
 
