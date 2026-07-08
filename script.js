@@ -402,9 +402,16 @@
 
     form.reset();
 
-    if (fields.niveau) {
-      renderMatieresByNiveau(fields.niveau.value);
+    const dejaInscritNonRadio = document.getElementById("dejaInscritNon");
+    if (dejaInscritNonRadio) {
+      dejaInscritNonRadio.checked = true;
     }
+
+    if (fields.niveau) {
+      renderMatieresByNiveau("");
+    }
+
+    togglePreviousEnrollmentBlock();
 
     showMessage("success", "Inscription envoyée avec succès.");
     openSuccessModal(data);
