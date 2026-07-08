@@ -22,7 +22,9 @@
       </div>
 
       <div class="card-body">
-        <form>
+        <form autocomplete="off">
+          <input type="text" name="fake_username" autocomplete="username" style="display:none">
+          <input type="password" name="fake_password" autocomplete="new-password" style="display:none">
 
           <div class="section-block previous-enrollment-card">
             <h2 class="section-title"><i class="bi bi-stars"></i> Historique ETP Formation</h2>
@@ -42,11 +44,11 @@
             <div id="previousEnrollmentDetails" class="row g-3 d-none">
               <div class="col-md-7">
                 <label for="ancienEnfantNom" class="form-label required">Nom de l'enfant déjà inscrit</label>
-                <input id="ancienEnfantNom" type="text" class="form-control" placeholder="Ex : TRAORE Mohamed" />
+                <input id="ancienEnfantNom" type="text" class="form-control" placeholder="Ex : TRAORE Mohamed" autocomplete="off" />
               </div>
               <div class="col-md-5">
                 <label for="anneeInscription" class="form-label required">Année d'inscription</label>
-                <input id="anneeInscription" type="number" min="2000" max="2100" class="form-control" placeholder="Ex : 2024" />
+                <input id="anneeInscription" type="number" min="2000" max="2100" class="form-control" placeholder="Ex : 2024" autocomplete="off" />
               </div>
             </div>
 
@@ -62,11 +64,11 @@
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="parentNom" class="form-label required">Nom complet du parent</label>
-                <input id="parentNom" type="text" class="form-control" placeholder="Ex : KOUASSI Marie" required />
+                <input id="parentNom" type="text" class="form-control" placeholder="Ex : KOUASSI Marie" autocomplete="off" required />
               </div>
               <div class="col-md-3">
                 <label for="parentWhatsapp" class="form-label required">WhatsApp</label>
-                <input id="parentWhatsapp" type="tel" class="form-control" placeholder="+225 XX XX XX XX XX" required />
+                <input id="parentWhatsapp" type="tel" class="form-control" placeholder="+225 XX XX XX XX XX" autocomplete="off" inputmode="numeric" required />
               </div>
             </div>
           </div>
@@ -76,15 +78,15 @@
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="eleveNom" class="form-label required">Nom et prénoms</label>
-                <input id="eleveNom" type="text" class="form-control" placeholder="Ex : TRAORE Aminata" required />
+                <input id="eleveNom" type="text" class="form-control" placeholder="Ex : TRAORE Aminata" autocomplete="off" required />
               </div>
               <div class="col-md-6">
                 <label for="etablissement" class="form-label required">Établissement</label>
-                <input id="etablissement" type="text" class="form-control" placeholder="Ex : Lycée Moderne d'Abidjan" required />
+                <input id="etablissement" type="text" class="form-control" placeholder="Ex : Lycée Moderne d'Abidjan" autocomplete="off" required />
               </div>
               <div class="col-md-3">
                 <label for="sexe" class="form-label required">Sexe</label>
-                <select id="sexe" class="form-select" required>
+                <select id="sexe" class="form-select" autocomplete="off" required>
                   <option value="" selected disabled>Choisir</option>
                   <option>Masculin</option>
                   <option>Féminin</option>
@@ -92,7 +94,7 @@
               </div>
               <div class="col-md-3">
                 <label for="niveau" class="form-label required">Niveau</label>
-                <select id="niveau" class="form-select" required>
+                <select id="niveau" class="form-select" autocomplete="off" required>
                   <option value="" selected disabled>Sélectionner un niveau</option>
                   <option>6ème</option>
                   <option>5ème</option>
