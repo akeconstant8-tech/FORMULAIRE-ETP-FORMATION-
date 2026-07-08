@@ -1,5 +1,5 @@
 import { db, collection, addDoc, serverTimestamp }
- from "./backoffice/firebase.js";
+ from "./back-office/firebase.js";
 (function (){
   "use strict";
   const STORAGE_KEY = "etp_inscriptions_v1";
