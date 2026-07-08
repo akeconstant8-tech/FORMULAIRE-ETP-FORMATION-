@@ -331,6 +331,53 @@
     isResettingAfterSubmit = false;
   }
 
+  function clearFormCompletely() {
+    clearDraft();
+
+    form.reset();
+
+    if (fields.parentNom) fields.parentNom.value = "";
+    if (fields.parentWhatsapp) fields.parentWhatsapp.value = "";
+    if (fields.eleveNom) fields.eleveNom.value = "";
+    if (fields.etablissement) fields.etablissement.value = "";
+    if (fields.sexe) fields.sexe.value = "";
+    if (fields.niveau) fields.niveau.value = "";
+    if (fields.ancienEnfantNom) fields.ancienEnfantNom.value = "";
+    if (fields.anneeInscription) fields.anneeInscription.value = "";
+
+    const dejaInscritNonRadio = document.getElementById("dejaInscritNon");
+    if (dejaInscritNonRadio) dejaInscritNonRadio.checked = true;
+
+    const dejaInscritOuiRadio = document.getElementById("dejaInscritOui");
+    if (dejaInscritOuiRadio) dejaInscritOuiRadio.checked = false;
+
+    document.querySelectorAll('input[name="serie"]').forEach((radio) => {
+      radio.checked = false;
+    });
+
+    document.querySelectorAll(".matiere-checkbox").forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    if (matieresContainer) {
+      matieresContainer.innerHTML = `
+      <div class="col-12">
+        <p class="text-muted mb-0">Sélectionnez d'abord un niveau pour voir les matières.</p>
+      </div>
+    `;
+    }
+
+    if (previousEnrollmentDetails) {
+      previousEnrollmentDetails.classList.add("d-none");
+    }
+
+    if (promoReduction) {
+      promoReduction.classList.add("d-none");
+    }
+
+    clearDraft();
+  }
+
   function loadDraft() {
     try {
       const raw = localStorage.getItem(DRAFT_KEY);
@@ -450,11 +497,14 @@
 
   loadDraft();
 
-  if (fields.niveau && !fields.niveau.value) {
+  if (!localStorage.getItem(DRAFT_KEY)) {
+    clearFormCompletely();
+  } else if (fields.niveau && !fields.niveau.value) {
     renderMatieresByNiveau("");
+    togglePreviousEnrollmentBlock();
+  } else {
+    togglePreviousEnrollmentBlock();
   }
-
-  togglePreviousEnrollmentBlock();
 
   if (submitBtn) {
     submitBtn.setAttribute("aria-label", "Envoyer la fiche d'inscription");
