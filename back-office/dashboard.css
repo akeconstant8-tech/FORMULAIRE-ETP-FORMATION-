@@ -455,7 +455,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  min-width: 120px;
+  min-width: 180px;
 }
 
 .action-btn {
