@@ -160,6 +160,8 @@ body {
 
 .main-content {
   padding: 18px;
+  min-width: 0;
+  width: 100%;
 }
 
 .topbar,
@@ -200,6 +202,8 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .icon-btn {
@@ -283,7 +287,7 @@ body {
 
 .panel-title-row {
   padding: 12px 14px;
-  border-bottom: 1px solid rgba(106, 151, 221, 0.2);
+  border-bottom: 1px solid rgba(106, 151, 221, 0.32);
   background: rgba(9, 28, 64, 0.74);
   display: flex;
   align-items: center;
@@ -408,19 +412,25 @@ body {
 
 .table-wrap {
   overflow: auto;
+  max-width: 100%;
 }
 
 .inscriptions-table {
   width: 100%;
   min-width: 980px;
   border-collapse: collapse;
+  table-layout: fixed;
+  border: 1px solid rgba(95, 145, 216, 0.24);
 }
 
 .inscriptions-table th,
 .inscriptions-table td {
   padding: 12px 10px;
   text-align: left;
-  border-bottom: 1px solid rgba(95, 145, 216, 0.2);
+  vertical-align: top;
+  border-bottom: 1px solid rgba(95, 145, 216, 0.26);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .inscriptions-table th {
@@ -434,6 +444,7 @@ body {
 .inscriptions-table td {
   color: #e4f1ff;
   font-size: 0.9rem;
+  line-height: 1.35;
 }
 
 .inscriptions-table tbody tr:hover {
@@ -444,6 +455,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  min-width: 120px;
 }
 
 .action-btn {
@@ -586,6 +598,12 @@ body {
   .menu-item {
     text-align: center;
   }
+  .topbar-right {
+    justify-content: flex-start;
+  }
+  .inscriptions-table {
+    min-width: 860px;
+  }
 }
 .menu-dot {
   width: 8px;
@@ -602,6 +620,15 @@ body {
   }
   .topbar {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .topbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .admin-box {
+    flex: 1;
+    min-width: 0;
   }
   .stats-grid {
     grid-template-columns: 1fr;
@@ -612,5 +639,11 @@ body {
   .panel-title-row {
     flex-direction: column;
     align-items: stretch;
+  }
+  .panel-title-row input {
+    width: 100%;
+  }
+  .inscriptions-table {
+    min-width: 760px;
   }
 }
