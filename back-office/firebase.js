@@ -4,9 +4,14 @@ import {
   collection,
   addDoc,
   getDocs,
+  onSnapshot,
   serverTimestamp,
   doc,
-  deleteDoc
+  updateDoc,
+  deleteDoc,
+  query,
+  orderBy,
+  where
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 import { getAuth} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
@@ -24,4 +29,16 @@ const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 export const auth = getAuth(app);
-export { collection, addDoc, getDocs, serverTimestamp, doc, deleteDoc };
+export {
+  collection,
+  addDoc,
+  getDocs,
+  onSnapshot,
+  serverTimestamp,
+  doc,
+  updateDoc,
+  deleteDoc,
+  query,
+  orderBy,
+  where
+};

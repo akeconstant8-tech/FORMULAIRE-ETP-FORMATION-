@@ -1,8 +1,8 @@
-- [x] Analyser les fichiers du back-office existants
-- [x] Préparer le plan de refonte validé avec l'utilisateur
-- [x] Refaire `back-office/login.html` (structure néon moderne)
-- [x] Refaire `back-office/login.css` (thème sombre + anneau animé + couleurs logo)
-- [x] Refaire `back-office/dashboard.html` (layout plus professionnel)
-- [x] Refaire `back-office/dashboard.css` (design premium cohérent avec login)
-- [x] Vérifier cohérence chemins (`index.html`, `vercel.json`) pour `back-office`
-- [x] Vérifier compatibilité JS (`login.js` / `dashboard.js`) sans changer les identifiants
+# TODO - Reproduire le modèle design (Public + Back-office)
+
+- [ ] 1. Refonte structure `index.html` selon le modèle fourni
+- [ ] 2. Refonte style `style.css` (theme clair bleu/orange)
+- [ ] 3. Refonte structure `back-office/dashboard.html` selon le même modèle visuel
+- [ ] 4. Refonte style `back-office/dashboard.css` (theme clair cohérent)
+- [ ] 5. Nettoyage `back-office/dashboard.js` (supprimer totalement création admin, garder gestion inscriptions)
+- [ ] 6. Vérification cohérence fonctionnelle (spécialité 1ère/Terminale affichée en fiche + actions admin)

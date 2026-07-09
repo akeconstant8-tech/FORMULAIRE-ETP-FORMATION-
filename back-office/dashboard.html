@@ -18,18 +18,12 @@
       </div>
 
       <nav class="menu">
-        <a class="menu-item active" href="#">Tableau de bord</a>
-        <a class="menu-item" href="#">Inscriptions</a>
-        <a class="menu-item" href="#">Formations</a>
-        <a class="menu-item" href="#">Élèves</a>
-        <a class="menu-item" href="#">Paiements</a>
-        <a class="menu-item" href="#">Messages</a>
-        <a class="menu-item" href="#">Statistiques</a>
-        <a class="menu-item" href="#">Paramètres</a>
+        <button class="menu-item active" data-view="overview" type="button">Tableau de bord</button>
+        <button class="menu-item" data-view="pending" type="button">Inscriptions en attente</button>
+        <button class="menu-item" data-view="validated" type="button">Inscriptions validées</button>
       </nav>
 
       <div class="sidebar-footer">
-        <a href="../index.html" class="ghost-link">Voir le formulaire</a>
         <button id="logoutBtn" type="button">Déconnexion</button>
       </div>
     </aside>
@@ -39,40 +33,85 @@
         <div>
           <p class="overline">Back-Office ETP</p>
           <h2>Gestion des inscriptions</h2>
-          <p class="subtitle">Suivez, filtrez et administrez les élèves en temps réel.</p>
+          <p class="subtitle">Créez, validez et suivez les inscriptions en temps réel.</p>
         </div>
         <div class="top-actions">
           <span class="admin-pill">Admin connecté</span>
+          <div class="notif-pill">
+            🔔 Notifications
+            <span id="notifCount">0</span>
+          </div>
         </div>
       </header>
 
+      <section class="notifications-panel">
+        <div class="panel-title-row">
+          <h3>Flux des notifications</h3>
+        </div>
+        <div id="notificationsList" class="notifications-list">
+          <p class="empty-inline">Aucune notification pour le moment.</p>
+        </div>
+      </section>
+
       <section class="stats-grid">
-        <article class="stat-card total">
-          <p>Inscriptions totales</p>
-          <h3 id="statTotal">0</h3>
-        </article>
         <article class="stat-card fresh">
-          <p>Nouveaux inscrits</p>
+          <p>📝 Nouvelles fiches</p>
           <h3 id="statNew">0</h3>
         </article>
-        <article class="stat-card confirmed">
-          <p>Confirmés</p>
-          <h3 id="statConfirmed">0</h3>
-        </article>
         <article class="stat-card pending">
-          <p>En attente</p>
+          <p>🟡 En attente de confirmation</p>
           <h3 id="statPending">0</h3>
+        </article>
+        <article class="stat-card validated">
+          <p>✅ Inscriptions validées</p>
+          <h3 id="statValidated">0</h3>
+        </article>
+        <article class="stat-card total">
+          <p>👨‍🎓 Élèves inscrits</p>
+          <h3 id="statTotal">0</h3>
         </article>
       </section>
 
-      <section class="table-panel">
-        <div class="table-toolbar">
-          <label for="searchInput" class="sr-only">Recherche</label>
-          <input id="searchInput" type="text" placeholder="Rechercher un élève, parent, téléphone, niveau..." />
-        </div>
-        <div id="list" class="table-wrap"></div>
+      <section id="viewOverview" class="view-section active">
+        <article class="table-panel">
+          <div class="panel-title-row">
+            <h3>Vue d’ensemble des inscriptions</h3>
+            <input id="searchOverview" type="text" placeholder="Rechercher un élève, parent, téléphone, niveau..." />
+          </div>
+          <div id="overviewTableWrap" class="table-wrap"></div>
+        </article>
+      </section>
+
+
+      <section id="viewPending" class="view-section">
+        <article class="table-panel">
+          <div class="panel-title-row">
+            <h3>Inscriptions en attente</h3>
+            <input id="searchPending" type="text" placeholder="Filtrer..." />
+          </div>
+          <div id="pendingTableWrap" class="table-wrap"></div>
+        </article>
+      </section>
+
+      <section id="viewValidated" class="view-section">
+        <article class="table-panel">
+          <div class="panel-title-row">
+            <h3>Inscriptions validées</h3>
+            <input id="searchValidated" type="text" placeholder="Filtrer..." />
+          </div>
+          <div id="validatedTableWrap" class="table-wrap"></div>
+        </article>
       </section>
     </main>
+  </div>
+
+  <div id="detailsModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-dialog">
+      <button id="closeDetailsModal" class="modal-close" type="button" aria-label="Fermer">×</button>
+      <div class="fiche-box">
+        <pre id="detailsContent" class="fiche-content"></pre>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="dashboard.js"></script>

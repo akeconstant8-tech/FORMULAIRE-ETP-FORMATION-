@@ -21,6 +21,7 @@ import { db, collection, addDoc, serverTimestamp }
   };
 
   const matieresContainer = document.getElementById("matieresContainer");
+  const matieresSection = document.getElementById("matieresSection");
   const previousEnrollmentDetails = document.getElementById("previousEnrollmentDetails");
   const promoReduction = document.getElementById("promoReduction");
 
@@ -95,7 +96,6 @@ import { db, collection, addDoc, serverTimestamp }
     const val = (niveau || "").toLowerCase();
     if (val.includes("1ère")) return "premiere";
     if (val.includes("terminale")) return "terminale";
-    if (["6ème", "5ème", "4ème", "3ème", "2nde"].includes(niveau)) return "college_lycee_basique";
     return "autre";
   }
 
@@ -104,37 +104,8 @@ import { db, collection, addDoc, serverTimestamp }
 
     const typeNiveau = parseNiveau(niveau);
 
-    if (typeNiveau === "college_lycee_basique") {
-      matieresContainer.innerHTML = `
-        <div class="col-6 col-md-3">
-          <div class="form-check">
-            <input class="form-check-input matiere-checkbox" type="checkbox" id="maths" data-label="Mathématiques" checked />
-            <label class="form-check-label" for="maths">Mathématiques</label>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="form-check">
-            <input class="form-check-input matiere-checkbox" type="checkbox" id="francais" data-label="Français" checked />
-            <label class="form-check-label" for="francais">Français</label>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="form-check">
-            <input class="form-check-input matiere-checkbox" type="checkbox" id="science" data-label="Science" checked />
-            <label class="form-check-label" for="science">Science</label>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="form-check">
-            <input class="form-check-input matiere-checkbox" type="checkbox" id="anglais" data-label="Anglais" checked />
-            <label class="form-check-label" for="anglais">Anglais</label>
-          </div>
-        </div>
-      `;
-      return;
-    }
-
     if (typeNiveau === "premiere") {
+      if (matieresSection) matieresSection.classList.remove("d-none");
       matieresContainer.innerHTML = `
         <div class="col-12">
           <label class="form-label required d-block mb-2">Série</label>
@@ -172,6 +143,7 @@ import { db, collection, addDoc, serverTimestamp }
     }
 
     if (typeNiveau === "terminale") {
+      if (matieresSection) matieresSection.classList.remove("d-none");
       matieresContainer.innerHTML = `
         <div class="col-12">
           <label class="form-label required d-block mb-2">Série</label>
@@ -202,11 +174,8 @@ import { db, collection, addDoc, serverTimestamp }
       return;
     }
 
-    matieresContainer.innerHTML = `
-      <div class="col-12">
-        <p class="text-muted mb-0">Sélectionnez d'abord un niveau pour voir les matières.</p>
-      </div>
-    `;
+    matieresContainer.innerHTML = "";
+    if (matieresSection) matieresSection.classList.add("d-none");
   }
 
   function collectFormData() {
@@ -252,7 +221,7 @@ import { db, collection, addDoc, serverTimestamp }
       errors.push("Veuillez renseigner la spécialité.");
     }
 
-    if (!data.matieres.length) {
+    if ((typeNiveau === "premiere" || typeNiveau === "terminale") && !data.matieres.length) {
       errors.push("Sélectionnez au moins une matière.");
     }
 
@@ -362,11 +331,10 @@ import { db, collection, addDoc, serverTimestamp }
     });
 
     if (matieresContainer) {
-      matieresContainer.innerHTML = `
-      <div class="col-12">
-        <p class="text-muted mb-0">Sélectionnez d'abord un niveau pour voir les matières.</p>
-      </div>
-    `;
+      matieresContainer.innerHTML = "";
+    }
+    if (matieresSection) {
+      matieresSection.classList.add("d-none");
     }
 
     if (previousEnrollmentDetails) {
@@ -475,6 +443,9 @@ import { db, collection, addDoc, serverTimestamp }
     try {
     await addDoc(collection(db, "inscriptions"), {
         ...data,
+        status: "en_attente",
+        source: "parent",
+        updatedAt: serverTimestamp(),
         createdAt: serverTimestamp()
     });
 } catch (error) {
@@ -485,7 +456,7 @@ import { db, collection, addDoc, serverTimestamp }
 
     resetFormAfterSubmit();
 
-    showMessage("success", "Inscription envoyée avec succès.");
+    showMessage("success", "🎉 Votre formulaire a été rempli avec succès. Nous vous contacterons bientôt. Nous vous remercions pour votre confiance.");
     openSuccessModal(data);
   });
 
