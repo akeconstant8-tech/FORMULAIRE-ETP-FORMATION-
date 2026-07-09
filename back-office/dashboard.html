@@ -18,70 +18,90 @@
       </div>
 
       <nav class="menu">
-        <button class="menu-item active" data-view="overview" type="button">Tableau de bord</button>
-        <button class="menu-item" data-view="pending" type="button">Inscriptions en attente</button>
-        <button class="menu-item" data-view="validated" type="button">Inscriptions validées</button>
+        <button class="menu-item active" data-view="overview" type="button">🏠 Tableau de bord</button>
+        <button class="menu-item" data-view="pending" type="button">🕒 Inscriptions en attente <span class="menu-dot menu-dot-warning"></span></button>
+        <button class="menu-item" data-view="validated" type="button">✅ Inscriptions validées <span class="menu-dot menu-dot-success"></span></button>
       </nav>
 
+      <div class="menu-group-title">PARAMÈTRES</div>
+      <div class="menu secondary-menu">
+        <button class="menu-item ghost" type="button">⚙ Paramètres généraux</button>
+      </div>
+
+      <div class="help-card">
+        <p class="help-title">Besoin d’aide ?</p>
+        <p class="help-subtitle">Consultez notre guide ou contactez le support.</p>
+        <button type="button">Voir le guide →</button>
+      </div>
+
       <div class="sidebar-footer">
-        <button id="logoutBtn" type="button">Déconnexion</button>
+        <button id="logoutBtn" type="button">⎋ Déconnexion</button>
       </div>
     </aside>
 
     <main class="main-content">
       <header class="topbar">
-        <div>
-          <p class="overline">Back-Office ETP</p>
-          <h2>Gestion des inscriptions</h2>
-          <p class="subtitle">Créez, validez et suivez les inscriptions en temps réel.</p>
+        <div class="topbar-search">
+          <input id="searchOverview" type="text" placeholder="🔎 Rechercher un élève, parent, téléphone..." />
         </div>
-        <div class="top-actions">
-          <span class="admin-pill">Admin connecté</span>
-          <div class="notif-pill">
-            🔔 Notifications
-            <span id="notifCount">0</span>
+        <div class="topbar-right">
+          <button class="icon-btn" type="button" aria-label="Notifications">🔔 <span class="notif-badge" id="notifCount">0</span></button>
+          <div class="admin-box">
+            <span class="avatar">👤</span>
+            <div>
+              <strong>Administrateur</strong>
+              <small>Admin connecté</small>
+            </div>
           </div>
         </div>
       </header>
 
+      <section class="hero">
+        <p class="hero-greeting">Bonjour, <span>Administrateur</span> 👋</p>
+        <h2>Gestion des inscriptions</h2>
+        <p>Créez, validez et suivez les inscriptions en temps réel.</p>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card fresh">
+          <div class="stat-head"><span>📝</span><p>Nouvelles fiches</p></div>
+          <h3 id="statNew">0</h3>
+          <small>Aujourd’hui</small>
+        </article>
+        <article class="stat-card pending">
+          <div class="stat-head"><span>⏳</span><p>En attente de confirmation</p></div>
+          <h3 id="statPending">0</h3>
+          <small>À traiter</small>
+        </article>
+        <article class="stat-card validated">
+          <div class="stat-head"><span>✅</span><p>Inscriptions validées</p></div>
+          <h3 id="statValidated">0</h3>
+          <small>Total validées</small>
+        </article>
+        <article class="stat-card total">
+          <div class="stat-head"><span>👨‍🎓</span><p>Élèves inscrits</p></div>
+          <h3 id="statTotal">0</h3>
+          <small>Total inscrits</small>
+        </article>
+      </section>
+
       <section class="notifications-panel">
         <div class="panel-title-row">
-          <h3>Flux des notifications</h3>
+          <h3>🔔 Flux des notifications</h3>
         </div>
         <div id="notificationsList" class="notifications-list">
           <p class="empty-inline">Aucune notification pour le moment.</p>
         </div>
       </section>
 
-      <section class="stats-grid">
-        <article class="stat-card fresh">
-          <p>📝 Nouvelles fiches</p>
-          <h3 id="statNew">0</h3>
-        </article>
-        <article class="stat-card pending">
-          <p>🟡 En attente de confirmation</p>
-          <h3 id="statPending">0</h3>
-        </article>
-        <article class="stat-card validated">
-          <p>✅ Inscriptions validées</p>
-          <h3 id="statValidated">0</h3>
-        </article>
-        <article class="stat-card total">
-          <p>👨‍🎓 Élèves inscrits</p>
-          <h3 id="statTotal">0</h3>
-        </article>
-      </section>
-
       <section id="viewOverview" class="view-section active">
         <article class="table-panel">
           <div class="panel-title-row">
             <h3>Vue d’ensemble des inscriptions</h3>
-            <input id="searchOverview" type="text" placeholder="Rechercher un élève, parent, téléphone, niveau..." />
           </div>
           <div id="overviewTableWrap" class="table-wrap"></div>
         </article>
       </section>
-
 
       <section id="viewPending" class="view-section">
         <article class="table-panel">

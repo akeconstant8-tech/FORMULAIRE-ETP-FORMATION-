@@ -13,15 +13,55 @@
 </head>
 
 <body>
-  <div class="container py-4 py-md-5">
-    <div class="card main-card">
-      <div class="card-header-pro">
-        <img src="Image/WhatsApp_Image_2026-07-07_at_12.33.38-removebg-preview.png" alt="Logo ETP Formation" class="logo" />
-        <h1 class="h3 school-title">ETP FORMATION</h1>
-        <p class="school-subtitle">Fiche  D'inscriptions d'élèves</p>
+  <div class="page-wrap">
+    <header class="form-topbar">
+      <div class="topbar-logo-wrap">
+        <img src="Image/WhatsApp_Image_2026-07-07_at_12.33.38-removebg-preview.png" alt="Logo ETP Formation" class="topbar-logo" />
       </div>
+      <div class="topbar-title-wrap">
+        <h1>FICHE D’INSCRIPTIONS D’ÉLÈVES</h1>
+      </div>
+      <div class="topbar-admin-wrap">
+        <a href="back-office/login.html" class="topbar-admin-btn" aria-label="Espace admin">
+          <i class="bi bi-shield-lock"></i>
+          <span>Espace admin</span>
+        </a>
+      </div>
+    </header>
 
-      <div class="card-body">
+    <main class="form-shell">
+      <aside class="left-info-panel">
+        <div class="welcome-box">
+          <h2>Bienvenue !</h2>
+          <p>Remplissez ce formulaire pour inscrire votre enfant à ETP FORMATION.</p>
+        </div>
+
+        <div class="left-feature">
+          <i class="bi bi-shield-check"></i>
+          <div>
+            <h3>Sécurité & Confidentialité</h3>
+            <p>Vos informations sont protégées et utilisées uniquement pour le traitement de l’inscription.</p>
+          </div>
+        </div>
+
+        <div class="left-feature">
+          <i class="bi bi-stars"></i>
+          <div>
+            <h3>Inscription en ligne</h3>
+            <p>Simple, rapide et accessible 24h/24 depuis n’importe où.</p>
+          </div>
+        </div>
+
+        <div class="left-feature">
+          <i class="bi bi-mortarboard"></i>
+          <div>
+            <h3>Accompagnement</h3>
+            <p>Notre équipe vous accompagne tout au long du processus d’inscription.</p>
+          </div>
+        </div>
+      </aside>
+
+      <section class="form-card-wrap">
         <form autocomplete="off">
           <input type="text" name="fake_username" autocomplete="username" style="display:none">
           <input type="password" name="fake_password" autocomplete="new-password" style="display:none">
@@ -63,10 +103,10 @@
             <h2 class="section-title"><i class="bi bi-people-fill"></i> Informations du parent / tuteur</h2>
             <div class="row g-3">
               <div class="col-md-6">
-                <label for="parentNom" class="form-label required">Nom complet du parent</label>
+                <label for="parentNom" class="form-label required">Nom complet du parent / tuteur</label>
                 <input id="parentNom" type="text" class="form-control" placeholder="Ex : KOUASSI Marie" autocomplete="off" required />
               </div>
-              <div class="col-md-3">
+              <div class="col-md-6">
                 <label for="parentWhatsapp" class="form-label required">WhatsApp</label>
                 <input id="parentWhatsapp" type="tel" class="form-control" placeholder="+225 XX XX XX XX XX" autocomplete="off" inputmode="numeric" required />
               </div>
@@ -74,17 +114,17 @@
           </div>
 
           <div class="section-block">
-            <h2 class="section-title"><i class="bi bi-person-vcard-fill"></i> Informations de l'élève</h2>
+            <h2 class="section-title"><i class="bi bi-mortarboard-fill"></i> Informations de l'élève</h2>
             <div class="row g-3">
               <div class="col-md-6">
-                <label for="eleveNom" class="form-label required">Nom et prénoms</label>
+                <label for="eleveNom" class="form-label required">Nom et prénoms de l'élève</label>
                 <input id="eleveNom" type="text" class="form-control" placeholder="Ex : TRAORE Aminata" autocomplete="off" required />
               </div>
               <div class="col-md-6">
                 <label for="etablissement" class="form-label required">Établissement</label>
                 <input id="etablissement" type="text" class="form-control" placeholder="Ex : Lycée Moderne d'Abidjan" autocomplete="off" required />
               </div>
-              <div class="col-md-3">
+              <div class="col-md-6">
                 <label for="sexe" class="form-label required">Sexe</label>
                 <select id="sexe" class="form-select" autocomplete="off" required>
                   <option value="" selected disabled>Choisir</option>
@@ -92,7 +132,7 @@
                   <option>Féminin</option>
                 </select>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-6">
                 <label for="niveau" class="form-label required">Niveau</label>
                 <select id="niveau" class="form-select" autocomplete="off" required>
                   <option value="" selected disabled>Sélectionner un niveau</option>
@@ -101,10 +141,8 @@
                   <option>4ème</option>
                   <option>3ème</option>
                   <option>2nde</option>
-                
-                  <option>1ère </option>
-                  <option>Terminale </option>
-            
+                  <option>1ère</option>
+                  <option>Terminale</option>
                 </select>
               </div>
             </div>
@@ -115,22 +153,45 @@
             <div id="matieresContainer" class="row g-2"></div>
           </div>
 
-          <div class="d-flex flex-wrap gap-2 justify-content-center mt-3 align-items-center">
-            <button type="submit" class="btn btn-orange btn-lg"><i class="bi bi-send-check me-2"></i>Envoyer</button>
-            <a class="whatsapp-inline-link" href="https://wa.me/2250708651718" target="_blank" rel="noopener noreferrer" aria-label="Contacter ETP Formation sur WhatsApp">
+          <div class="form-actions-row">
+            <button type="submit" class="btn-submit-form"><i class="bi bi-send me-2"></i>Envoyer l'inscription</button>
+            <a class="btn-whatsapp-form" href="https://wa.me/2250708651718" target="_blank" rel="noopener noreferrer" aria-label="Contacter ETP Formation sur WhatsApp">
               <i class="bi bi-whatsapp"></i>
               <span>WhatsApp</span>
             </a>
           </div>
         </form>
+      </section>
+    </main>
 
-        <div class="admin-footer">
-          <a href="back-office/login.html" class="admin-footer-link" aria-label="Espace admin"><i class="bi bi-shield-lock me-1"></i>Espace admin</a>
-        </div>
-        <p class="footer-note">ETP FORMATION • Fiche d'inscriptions élèves • Document interne</p>
-      </div>
-    </div>
+    <section class="advantages-row">
+      <article>
+        <i class="bi bi-award"></i>
+        <h4>Éducation de qualité</h4>
+        <p>Un enseignement de qualité pour un avenir meilleur</p>
+      </article>
+      <article>
+        <i class="bi bi-journal-check"></i>
+        <h4>Encadrement professionnel</h4>
+        <p>Des formateurs expérimentés à votre service</p>
+      </article>
+      <article>
+        <i class="bi bi-person-check"></i>
+        <h4>Suivi personnalisé</h4>
+        <p>Un accompagnement adapté à chaque élève</p>
+      </article>
+      <article>
+        <i class="bi bi-patch-check"></i>
+        <h4>Réussite garantie</h4>
+        <p>Votre réussite est notre priorité absolue</p>
+      </article>
+    </section>
+
+    <footer class="form-footer">
+      <p>© 2026 ETP FORMATION. Tous droits réservés.</p>
+    </footer>
   </div>
+
   <div id="successOverlay" class="success-overlay d-none" aria-hidden="true">
     <div class="success-modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
       <div class="success-icon"><i class="bi bi-check2-circle"></i></div>

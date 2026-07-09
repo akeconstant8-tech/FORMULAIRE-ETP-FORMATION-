@@ -1,8 +1,8 @@
-# TODO - Reproduire le modèle design (Public + Back-office)
+# TODO - Application du modèle formulaire
 
-- [ ] 1. Refonte structure `index.html` selon le modèle fourni
-- [ ] 2. Refonte style `style.css` (theme clair bleu/orange)
-- [ ] 3. Refonte structure `back-office/dashboard.html` selon le même modèle visuel
-- [ ] 4. Refonte style `back-office/dashboard.css` (theme clair cohérent)
-- [ ] 5. Nettoyage `back-office/dashboard.js` (supprimer totalement création admin, garder gestion inscriptions)
-- [ ] 6. Vérification cohérence fonctionnelle (spécialité 1ère/Terminale affichée en fiche + actions admin)
+- [x] 1. Analyser la structure existante du formulaire (`index.html`, `style.css`)
+- [x] 2. Valider le plan d’implémentation avec l’utilisateur
+- [ ] 3. Refaire la structure visuelle de `index.html` selon la maquette
+- [ ] 4. Refaire `style.css` pour appliquer le design blanc/bleu demandé
+- [ ] 5. Vérifier la compatibilité avec `script.js` (IDs / flux)
+- [ ] 6. Vérification visuelle et responsive finale
